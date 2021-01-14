@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Processing.JS inside Webpages: Template</title> 
+</head>
+<style>
+    body{
+       background-image: url(https://image.freepik.com/vector-gratis/tecnologia-abstracta-fondo-codigo-binario_77417-995.jpg);  
+       -webkit-background-size:cover;
+       background-size:cover;
+       background-position: center center;
+       height: 100vh;
+      }
+ </style>
+ <body>
+    <br><center><h1 style="color:#ffffff";>Proyecto:Librero</h1></center></br>
+    <p align="center"> 
+ <!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+    <center><a href="https://jairar.github.io/proyectos-html/index.html"><img src="https://images.vexels.com/media/users/3/135130/isolated/preview/d2c08eac3a7faa0dabc1b8a33d7ea598-silueta-de-icono-plano-de-inicio-web-by-vexels.png" width="150"></a></center>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        var book = [
+{
+    title: "The Giver",
+    stars: 1,
+    pag:"N. paginas "+31
+},
+{
+    title: "Caballo de troya",
+    stars: 1,
+    pag:"N. paginas "+727
+},
+{
+    title: "Cien años de soledad",
+    stars: 1,
+    pag:"N. paginas "+471
+}
+];
+
+//Nombrar libros del segundo piso
+var book2 = [
+{
+    title: "Odisea",
+    stars: 1,
+    pag:"N. paginas "+54
+},
+{
+    title: "Estoy bien",
+    stars: 1,
+    pag:"N. paginas "+576
+},
+{
+    title: "Crónica de una muerte anunciada",
+    stars: 1,
+    pag:"N. paginas "+156
+}
+    ];
+
+//Nombrar libros del tercer piso
+var book3 = [
+{
+    title: "Don quijote dela mancha",
+    stars: 1,
+    pag:"N. paginas "+1424
+},
+{
+    title: "El amor en los tiempos del cólera",
+    stars: 1,
+    pag:"N. paginas "+416
+},
+{
+    title: "Cronicas de un rey",
+    stars: 1,
+    pag:"N. paginas "+ 430
+}
+    ];
+
+// draw shelf
+for (var i=0; i<4; i++){
+fill(173, 117, 33);
+rect(0, 120*i, width, 10);
+}
+
+for (var j=0; j<book.length;j++){
+    fill(255, 171, 171);
+    rect(10+j*100, 20, 90, 100);
+    fill(247, 175, 247);
+    rect(10+j*100, 138, 90, 100);
+    fill(165, 184, 167);
+    rect(10+j*100, 257, 90, 100);
+    fill(0, 0, 0);
+    /**/
+    fill(255, 171, 171);
+    rect(113+j*100, 20, 90, 100);
+    fill(247, 175, 247);
+    rect(113+j*100, 138, 90, 100);
+    fill(165, 184, 167);
+    rect(113+j*100, 257, 90, 100);
+    fill(0, 0, 0);
+    /**/
+    fill(255, 171, 171);
+    rect(213+j*100, 20, 90, 100);
+    fill(247, 175, 247);
+    rect(213+j*100, 138, 90, 100);
+    fill(165, 184, 167);
+    rect(213+j*100, 257, 90, 100);
+    fill(0, 0, 0);
+
+
+for (var k=0; k < book.length; k++){
+    text(book[k].title, 15 + k * 100, 29, 89, 100);
+    text(book2[k].title, 15 + k * 100, 150, 92, 100);
+    text(book3[k].title, 15 + k * 100, 265, 70, 100);
+
+    text(book[k].pag, 15 + k * 100, 70, 70, 100);
+    text(book2[k].pag, 15 + k * 100, 187, 70, 100);
+    text(book3[k].pag, 15 + k * 100, 306, 70, 100);
+}
+
+for (var k=0; k < 3; k++){
+    getImage("../images/1.jpg");
+
+}
+for (var k=0; k < 3; k++){
+    image(getImage("cute/Star"),44 + k *0 + k*100, 207, 20, 30);
+
+}
+for (var k=0; k < 3; k++){
+    image(getImage("cute/Star"),44 + k *-8 + k*108, 327, 20, 30);
+
+}
+}
+  }};
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>

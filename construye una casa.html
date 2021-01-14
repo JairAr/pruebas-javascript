@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Processing.JS inside Webpages: Template</title> 
+</head>
+<style>
+   body{
+      background-image: url(https://image.freepik.com/vector-gratis/tecnologia-abstracta-fondo-codigo-binario_77417-995.jpg);  
+      -webkit-background-size:cover;
+      background-size:cover;
+      background-position: center center;
+      height: 100vh;
+     }
+</style>
+ <body>
+   <br><center><h1 style="color:#ffffff";>Proyecto:Construye una casa</h1></center></br>
+    <p align="center"> 
+ <!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+    <center><a href="https://jairar.github.io/proyectos-html/index.html"><img src="https://images.vexels.com/media/users/3/135130/isolated/preview/d2c08eac3a7faa0dabc1b8a33d7ea598-silueta-de-icono-plano-de-inicio-web-by-vexels.png" width="150"></a></center>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+
+background(219, 255, 255);
+
+fill(174, 180, 214);
+triangle(200, 28, 350, 150, 50, 150);
+
+fill(255, 255, 255);
+rect(60, 150, 280, 207);
+for (var x=0;x<14;x++)
+{
+    for(var j=0;j<9;j++)
+ {
+    fill(133, 9, 9);
+    rect(61+j*31, 151+x*15, 30, 12);
+ }
+}
+
+
+fill(120, 80, 19);
+rect(180, 280, 40, 77);
+
+for(var i=0;i<4;i++)
+{
+  fill(245, 245, 245);
+  rect(266-i*60, 180, 48, 48);
+}
+var pasto=getImage("cute/GrassBlock");
+var planta=getImage("cute/TreeUgly");
+for(var p=0;p<5;p++)
+{
+   image(pasto,0+p*90,328,90,100);
+   image(planta,-61+p*90,315,90,92);
+}
+
+  }};
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
